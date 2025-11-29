@@ -1,0 +1,46 @@
+name: NodeJS Webpack Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+      # Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup Node
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Build using Webpack
+      - name: Run Webpack Build
+        run: npx webpack --mode production
+
+      # Optional: Run tests (uncomment if needed)
+      # - name: Run tests
+      #   run: npm test
+
+      # Optional: Upload build artifacts
+      # - name: Upload build folder
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: build
+      #     path: dist/
