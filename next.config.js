@@ -1,11 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: { appDir: true }
-  // ❌ remove the i18n block when using app/[locale]
-  // i18n: {
-  //   locales: ['en', 'hi', 'mr'],
-  //   defaultLocale: 'en'
-  // }
+  experimental: { appDir: true },
+
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/en', // default locale
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
