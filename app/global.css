@@ -45,6 +45,10 @@ h2 {
   color: #7bc3c3;
 }
 
+h3, strong {
+  color: #078686;
+}
+
 /* 6. Custom utilities */
 .w-24 {
   width: 16rem;           /* or delete and rely on Tailwind's w-24 */
