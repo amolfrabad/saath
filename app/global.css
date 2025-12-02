@@ -51,7 +51,7 @@ h3, strong {
 
 /* 6. Custom utilities */
 .w-24 {
-  width: 16rem;           /* or delete and rely on Tailwind's w-24 */
+  width: 12rem;           /* or delete and rely on Tailwind's w-24 */
 }
 
 .btn-primary {
