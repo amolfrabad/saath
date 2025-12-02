@@ -169,7 +169,7 @@ export default function AboutPage() {
           </p>
           <div className="mt-3 h-32 w-full overflow-hidden rounded-md bg-gray-100">
             <img
-              src="/images/about-vision.jpg"
+              src="/images/about-vision-1.jpg"
               alt="Hopeful view representing connection and future"
               className="h-full w-full object-cover"
             />
