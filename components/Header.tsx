@@ -30,7 +30,7 @@ export default function Header() {
             noOneAlone
           </div>
 
-          <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-snug">
+          <p className="text-xl font-semibold mb-2 text-brand-blue">
             you talk, we listen
           </p>
         </div>

@@ -6,7 +6,7 @@
 html,
 body {
   height: 100%;
- }
+}
 
 /* 2. Body as flex root */
 body {
@@ -29,7 +29,8 @@ body {
 /* 4. Main layout: full height, centered content area */
 main {
   background: white;
-  flex: 1;                /* fills available height */
+  flex: 1;
+  /* fills available height */
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
@@ -45,13 +46,15 @@ h2 {
   color: #f58320;
 }
 
-h3, strong {
+h3,
+strong {
   color: #078686;
 }
 
 /* 6. Custom utilities */
 .w-24 {
-  width: 12rem;           /* or delete and rely on Tailwind's w-24 */
+  width: 12rem;
+  /* or delete and rely on Tailwind's w-24 */
 }
 
 .btn-primary {
@@ -64,5 +67,9 @@ h3, strong {
 @layer utilities {
   .text-brand-orange {
     color: #f58320;
+  }
+
+  .text-brand-blue {
+    color: #029be1;
   }
 }
