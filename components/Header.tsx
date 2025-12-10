@@ -23,9 +23,13 @@ export default function Header() {
 
         {/* Center text */}
         <div className="flex-1 flex flex-col items-center justify-center text-center px-2">
-          <h1 className="text-base sm:text-lg md:text-xl font-semibold leading-snug text-brand-orange">
+          <div
+            className="text-base sm:text-lg md:text-xl font-semibold leading-snug text-brand-orange"
+            aria-label="noOneAlone"
+          >
             noOneAlone
-          </h1>
+          </div>
+
           <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-snug">
             you talk, we listen
           </p>
