@@ -8,52 +8,65 @@ export default function Header() {
 
   return (
     <header className="py-4 border-b border-gray-200">
-      {/* Top row: logo + desktop nav + hamburger */}
+      {/* Top row: logo left + centered text + nav/hamburger right */}
       <div className="flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-4">
+        {/* Logo (left) */}
+        <div className="flex items-center  max-w-[100px] sm:max-w-[160px] md:max-w-[200px]">
           <Link href="/en">
             <img
-              src="/logo-1.png"
+              src="/logo-1.jpeg"
               alt="logo"
-              className="w-24 hover:scale-105 transition-transform duration-200"
+              className="w-full h-auto hover:scale-105 transition-transform duration-200"
             />
           </Link>
         </div>
 
-        {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center gap-3">
-          <Link
-            href="/en/about"
-            className="header-link transition-all duration-200 hover:text-gray-900 hover:underline"
-          >
-            About
-          </Link>
-          <Link
-            href="/en/services"
-            className="header-link transition-all duration-200 hover:text-gray-900 hover:underline"
-          >
-            Services
-          </Link>
-          <Link
-            href="/en/contact"
-            className="header-link btn-primary inline-flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-[#5aa2d5]"
-          >
-            Contact
-          </Link>
-        </nav>
+        {/* Center text */}
+        <div className="flex-1 flex flex-col items-center justify-center text-center px-2">
+          <h1 className="text-base sm:text-lg md:text-xl font-semibold leading-snug text-brand-orange">
+            noOneAlone
+          </h1>
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-snug">
+            you talk, we listen
+          </p>
+        </div>
 
-        {/* Mobile hamburger button */}
-        <button
-          type="button"
-          className="md:hidden inline-flex flex-col items-center justify-center gap-[3px] p-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100"
-          aria-label="Toggle navigation"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="block w-5 h-[2px] bg-gray-700 rounded" />
-          <span className="block w-5 h-[2px] bg-gray-700 rounded" />
-          <span className="block w-5 h-[2px] bg-gray-700 rounded" />
-        </button>
+        {/* Right side: desktop nav + mobile hamburger */}
+        <div className="flex items-center">
+          {/* Desktop navigation */}
+          <nav className="hidden md:flex items-center gap-3">
+            <Link
+              href="/en/about"
+              className="header-link transition-all duration-200 hover:text-gray-900 hover:underline"
+            >
+              About
+            </Link>
+            <Link
+              href="/en/services"
+              className="header-link transition-all duration-200 hover:text-gray-900 hover:underline"
+            >
+              Services
+            </Link>
+            <Link
+              href="/en/contact"
+              className="header-link btn-primary inline-flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-[#5aa2d5]"
+            >
+              Contact
+            </Link>
+          </nav>
+
+          {/* Mobile hamburger button */}
+          <button
+            type="button"
+            className="md:hidden inline-flex flex-col items-center justify-center gap-[3px] p-2 ml-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100"
+            aria-label="Toggle navigation"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="block w-5 h-[2px] bg-gray-700 rounded" />
+            <span className="block w-5 h-[2px] bg-gray-700 rounded" />
+            <span className="block w-5 h-[2px] bg-gray-700 rounded" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile nav panel */}
