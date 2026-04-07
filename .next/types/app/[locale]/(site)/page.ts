@@ -1,4 +1,4 @@
-// File: D:\noa\noOneAlone-expanded\app\[locale]\(site)\page.tsx
+// File: C:\Users\admin\Documents\GitHub\saath\app\[locale]\(site)\page.tsx
 import * as entry from '../../../../../app/[locale]/(site)/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

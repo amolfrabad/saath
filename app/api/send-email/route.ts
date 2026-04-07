@@ -68,17 +68,19 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        const { name, email, topic, message } = validationResult.data;
+        const { name, email, phone, topic, message } = validationResult.data;
 
         // Escape HTML to prevent XSS attacks
         const safeName = escapeHtml(name);
         const safeMessage = escapeHtml(message);
         const safeTopic = escapeHtml(topic);
+        const safePhone = escapeHtml(phone);
 
         const adminEmailHtml = `
             <h2>New Contact Form Submission</h2>
             <p><strong>Name:</strong> ${safeName}</p>
             <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+            <p><strong>Phone:</strong> ${safePhone}</p>
             <p><strong>Topic:</strong> ${safeTopic}</p>
             <p><strong>Message:</strong></p>
             <p>${textToHtml(safeMessage)}</p>

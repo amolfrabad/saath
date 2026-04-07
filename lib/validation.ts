@@ -23,6 +23,11 @@ export const contactFormSchema = z.object({
         .min(10, 'Message must be at least 10 characters')
         .max(5000, 'Message must be less than 5000 characters')
         .trim(),
+    phone: z
+        .string()
+        .min(1, 'Phone number is required')
+        .regex(/^[+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Please enter a valid phone number')
+        .max(20, 'Phone number is too long'),
     honeypot: z
         .string()
         .max(0, 'Form submission rejected')

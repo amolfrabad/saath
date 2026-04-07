@@ -16,6 +16,7 @@ export default function ContactForm({ contactEmail = 'noonealone@zohomail.in' }:
     const [formData, setFormData] = useState<Partial<ContactFormData>>({
         name: '',
         email: '',
+        phone: '',
         topic: '',
         message: '',
         honeypot: '',
@@ -87,6 +88,7 @@ export default function ContactForm({ contactEmail = 'noonealone@zohomail.in' }:
                 setFormData({
                     name: '',
                     email: '',
+                    phone: '',
                     topic: '',
                     message: '',
                     honeypot: '',
@@ -196,6 +198,32 @@ export default function ContactForm({ contactEmail = 'noonealone@zohomail.in' }:
                     {fieldErrors.email && (
                         <p id="email-error" className="mt-1 text-sm text-red-600">
                             {fieldErrors.email[0]}
+                        </p>
+                    )}
+                </div>
+
+                <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                        Phone <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        className={`w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1 transition-colors ${fieldErrors.phone
+                            ? 'border-red-300 focus:border-red-500 focus:ring-red-500'
+                            : 'border-gray-300 focus:border-blue-500 focus:ring-blue-500'
+                            }`}
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+1 (555) 123-4567"
+                        required
+                        aria-invalid={!!fieldErrors.phone}
+                        aria-describedby={fieldErrors.phone ? 'phone-error' : undefined}
+                    />
+                    {fieldErrors.phone && (
+                        <p id="phone-error" className="mt-1 text-sm text-red-600">
+                            {fieldErrors.phone[0]}
                         </p>
                     )}
                 </div>

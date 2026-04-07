@@ -1,5 +1,5 @@
 {
   "/api/send-email/route": "app/api/send-email/route.js",
-  "/[locale]/(site)/contact/page": "app/[locale]/(site)/contact/page.js",
-  "/[locale]/(site)/page": "app/[locale]/(site)/page.js"
+  "/[locale]/(site)/page": "app/[locale]/(site)/page.js",
+  "/[locale]/(site)/contact/page": "app/[locale]/(site)/contact/page.js"
 }
