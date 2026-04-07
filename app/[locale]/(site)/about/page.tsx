@@ -1,50 +1,27 @@
 import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
 import Header from '../../../../components/Header';
-import Footer from './../../../../components/Footer'
+import Footer from './../../../../components/Footer';
+import HeroSection from '../../../../components/ui/HeroSection';
+import InfoGrid from '../../../../components/ui/InfoGrid';
+import CTASection from '../../../../components/ui/CTASection';
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const t = await getTranslations('about');
+
   return (
     <main className="container pb-8">
       <Header />
 
-      {/* Hero / Intro */}
-      <section className="mt-6 rounded-lg bg-gray-50 px-6 py-10 md:px-10">
-        <div className="grid gap-8 md:grid-cols-2 items-center">
-          <div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              About noOneAlone
-            </h1>
-            <p className="text-gray-700 mb-4">
-              noOneAlone is a safe, non-judgmental companionship service for people who feel lonely
-              or need someone to talk to. Our companions are trained listeners, fully verified, and
-              follow strict safety and privacy guidelines to keep every interaction comfortable and
-              secure.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-4">
-              <Link
-                href="/en/contact"
-                className="btn-primary inline-flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-[#5aa2d5]"
-              >
-                Talk to a Companion
-              </Link>
-              <Link
-                href="/en/services"
-                className="px-4 py-2 border border-gray-300 rounded transition-all duration-200 hover:bg-gray-100 hover:border-gray-400 hover:-translate-y-0.5"
-              >
-                View Services
-              </Link>
-            </div>
-          </div>
-
-          <div className="h-56 md:h-72 rounded-lg overflow-hidden bg-gray-200">
-            <img
-              src="/images/about-hero.jpg"
-              alt="Person being listened to with care"
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title={t('hero.title')}
+        description={t('hero.description')}
+        imageSrc="/images/about-hero.jpg"
+        buttons={[
+          { text: t('hero.talkToCompanion'), href: "/en/contact" },
+          { text: t('hero.viewServices'), href: "/en/services", className: "px-4 py-2 border border-gray-300 rounded transition-all duration-200 hover:bg-gray-100 hover:border-gray-400 hover:-translate-y-0.5" }
+        ]}
+      />
 
       {/* Who we are / What we do */}
       <section className="mt-10 grid gap-8 md:grid-cols-2">
@@ -177,30 +154,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="mt-12 text-center">
-        <h2 className="text-2xl font-semibold mb-3">
-          Ready to talk to someone who truly listens?
-        </h2>
-        <p className="text-gray-700 mb-6 max-w-2xl mx-auto text-sm">
-          Whether you need a one-time conversation or regular check-ins, noOneAlone companions are
-          here to listen with empathy and zero judgment.
-        </p>
-        <div className="flex justify-center gap-4">
-          <Link
-            href="/en/contact"
-            className="btn-primary inline-flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:bg-[#5aa2d5]"
-          >
-            Start a Conversation
-          </Link>
-          <Link
-            href="/en/services"
-            className="px-4 py-2 border border-gray-300 rounded transition-all duration-200 hover:bg-gray-100 hover:border-gray-400 hover:-translate-y-0.5"
-          >
-            Explore Services
-          </Link>
-        </div>
-      </section>
+      <CTASection
+        title={t('cta.title')}
+        description={t('cta.description')}
+        buttons={[
+          { text: t('cta.startConversation'), href: "/en/contact" },
+          { text: t('cta.exploreServices'), href: "/en/services", className: "px-4 py-2 border border-gray-300 rounded transition-all duration-200 hover:bg-gray-100 hover:border-gray-400 hover:-translate-y-0.5" }
+        ]}
+      />
 
       <Footer />
     </main>
